@@ -32,7 +32,9 @@ export default function Home() {
   }, []);
 
   const checkSpecialty = (specialties: string[], searchTerm: string) => {
-    return specialties.find((specialty) => specialty.toLowerCase().includes(searchTerm))
+    return specialties.find((specialty) =>
+      specialty.toLowerCase().includes(searchTerm)
+    )
       ? true
       : false;
   };
@@ -57,14 +59,18 @@ export default function Home() {
   };
 
   return (
-    <main style={{ margin: "24px" }}>
+    <main style={{ margin: "24px", color: "#2a273a"}}>
+      <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+      ></link>
       <div style={{ marginBottom: "30px", fontSize: "1.5rem" }}>
         Solace Advocates
       </div>
       <div style={{ marginBottom: "15px" }}>
         <p>Filter Search</p>
         <input
-          style={{ border: "1px solid black" }}
+          style={{ border: "1px solid black", paddingLeft: "10px" }}
           onChange={(e) => setSearchTerm(e.target.value)}
         />
         <button style={{ marginLeft: "15px" }} onClick={handleReset}>
@@ -80,7 +86,7 @@ export default function Home() {
         <div>Years of Experience</div>
         <div>Phone Number</div>
       </div>
-      <div>
+      <div className="advocate-container">
         {filteredAdvocates.map((advocate: Advocate) => {
           return (
             <>
@@ -90,7 +96,7 @@ export default function Home() {
                 <div>{advocate.city}</div>
                 <div>{advocate.degree}</div>
                 <SpecialtyField specialties={advocate.specialties} />
-                <div>{advocate.yearsOfExperience}</div>
+                <div className="y-o-e">{advocate.yearsOfExperience}</div>
                 <div>{advocate.phoneNumber}</div>
               </div>
             </>

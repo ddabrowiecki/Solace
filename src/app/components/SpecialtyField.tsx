@@ -8,7 +8,7 @@ const SpecialtyField = ({ specialties }: {specialties: string[]}) => {
         specialties.map((specialty: string) => <div className="specialty" key={specialty}>{specialty}</div>
         )
       ) : (
-        <div>V</div>
+        <div className="specialty-icon"><i className="fa fa-angle-double-down"></i></div>
       )}
     </div>
   );
